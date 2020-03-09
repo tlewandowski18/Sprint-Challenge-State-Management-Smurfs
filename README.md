@@ -22,11 +22,27 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-- [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+- [x] What problem does the context API help solve?
+Context API allows us to pass data down without using prop drilling, which can be very cumbersome.  State is saved to a context object and can be accessed by any component in the component tree without prop drilling.
+- [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+A redux store holds the global state for our application.  Whenever state is updated it is updated in one store instead of being scattered in different components throughout the application.  Stores are the single source of truth because they hold ALL of the vital data for our applications.
+
+Reducers are functions that take two arguments, state and an action.  When dispatched the reducer will determine which action occurred and update our global state based on that action.
+
+Actions are objects with a "type" element and, possibly, a payload element.  When an action occurs, the Action object will be passed to the reducer so that state can be updated.
+
+- [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is global.  Data held in Application State can be accessed by any component in the application through a global state management such as Redux
+
+- [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk is middleware that allow that will run everytime an action creator is called.  Reducers will only run if the action argument is of the type object.  Redux-thunk will check what is returned from the action creator.  If it is an object it will pass it onto the reducer.  If the value returned is a function it will run that function and check to see if that function returns an object.  It will ensure that the value returned from the action creator will not be passed to the reducer unless it is an object.
+
+- [x] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux is my favorite state management system because I like having all the vital data for an application stored in one centralized location.  I look forward to learning redux-hooks.
 
 ## Project Set Up
 
